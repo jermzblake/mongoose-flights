@@ -1,7 +1,32 @@
 <%- include ../partials/header.ejs %> 
 <%- include ../partials/nav.ejs %>
 
-<h1>Add Flights</h1>
+<h1>Add a New Flight</h1>
+<form action="/flights" method="POST">
+    <label>Airline:
+        <select name="airline">
+            <option value="American">American</option>
+            <option value="Southwest">Southwest</option>
+            <option value="United">United</option>
+        </select>
+    </label><br>
+    <label>Airport:
+        <select name="airport">
+            <option value="DEN">DEN</option>
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+    </label><br>
+    <label>Flight No:
+        <input type="number" name="flightNo">
+    </label><br>
+    <label>Departs:
+        <input type="date" name="departs">
+    </label><br>
+    <input type="submit" value="Add Flight">
+</form>
 
 
 

@@ -4,6 +4,6 @@ const flightsCtrl = require('../controllers/flights')
 
 /* GET flights listing. */
 router.get('/', flightsCtrl.index);
-router.get('/new', flightsCtrl.create);
+router.get('/new', flightsCtrl.new);
 
 module.exports = router;
