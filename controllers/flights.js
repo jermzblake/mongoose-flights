@@ -9,13 +9,19 @@ module.exports = {
 }
 
 function index(req, res, next) {
-    Flight.find({}, function(err, flights){
-    res.render('flights/index', {flights});
+    const departrow = Flight[departs]
+    Flight.find({}).sort({departrow}).exec(function(err, flights){
+    res.render('flights/index', {flights: flights.sort()});
   });
 }
 
 function newFlight(req, res, next) {
-    res.render('flights/new', )
+    const newFlight = new Flight();
+// Obtain the default date
+    const dt = newFlight.departs;
+// Format the date for the value attribute of the input
+    const departsDate = dt.toISOString().slice(0, 16);
+    res.render('flights/new', {departsDate});
 }
 
 function create(req, res, next){
