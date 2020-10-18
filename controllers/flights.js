@@ -9,8 +9,7 @@ module.exports = {
 }
 
 function index(req, res, next) {
-    const departrow = Flight[departs]
-    Flight.find({}).sort({departrow}).exec(function(err, flights){
+    Flight.find({}, function(err, flights){
     res.render('flights/index', {flights: flights.sort()});
   });
 }
