@@ -35,7 +35,7 @@ function create(req, res, next){
             return res.render('flights/new')
         }
         console.log(flight)
-        res.redirect('flights/');
+        res.redirect('flights/'); //details links don't work from here??
     });
 }
 

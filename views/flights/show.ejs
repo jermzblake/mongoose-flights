@@ -12,7 +12,27 @@
     <div>Departs: </div>
     <div><%= flight.departs %></div>
     <div>Destination(s): </div>
-    <div><%= flight.destinations.airport %>, <%= flight.destinations.arrival%></div>
+    <div><% if (flight.destinations.length) { %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Airport</th>
+              <th>Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% flight.destinations.forEach(function(d) { %>
+              <tr>
+                <td><%= d.airport %></td>
+                <td><%= d.arrival %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h6>No Destinations Yet</h6>
+      <% } %>
+    </div>
   </section>
 
   <br><br><h2>Destinations</h2>
