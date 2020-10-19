@@ -4,14 +4,13 @@ module.exports = {
     index,
     new: newFlight,
     create,
-
+    show,
 
 }
 
 function index(req, res, next) {
-    const departrow = Flight[departs]
-    Flight.find({}).sort({departrow}).exec(function(err, flights){
-    res.render('flights/index', {flights: flights.sort()});
+    Flight.find({}).sort({departs: "asc"}).exec(function(err, flights){
+    res.render('flights/index', {flights});
   });
 }
 
@@ -38,4 +37,10 @@ function create(req, res, next){
         console.log(flight)
         res.redirect('flights/');
     });
+}
+
+function show(req, res, next){
+    Flight.findById(req.params.id, function(err, flight){
+        res.render('flights/show', {flight})
+    })
 }
