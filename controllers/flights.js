@@ -35,12 +35,12 @@ function create(req, res, next){
             return res.render('flights/new')
         }
         console.log(flight)
-        res.redirect('flights/'); //details links don't work from here??
+        res.redirect('flights'); //details links don't work from here??
     });
 }
 
 function show(req, res, next){
-    Flight.findById(req.params.id, function(err, flight){
+    Flight.findById(req.params.id).sort({arrival: "asc"}).exec(function(err, flight){
         res.render('flights/show', {flight})
     })
 }
