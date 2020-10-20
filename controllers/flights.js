@@ -40,7 +40,8 @@ function create(req, res, next){
 }
 
 function show(req, res, next){
-    Flight.findById(req.params.id).sort({arrival: "asc"}).exec(function(err, flight){
+    Flight.findById(req.params.id, function(err, flight){
+        flight.destinations.sort((a,b) => a.arrival - b.arrival)
         res.render('flights/show', {flight})
     })
 }
