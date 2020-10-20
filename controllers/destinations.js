@@ -2,6 +2,7 @@ const Flight = require('../models/flight');
 
 module.exports = {
     create,
+    delete: deleteOne
 }
 
 function create(req, res, next){
@@ -13,3 +14,6 @@ function create(req, res, next){
     })
 }
 
+function deleteOne(req, res, next){
+
+}
