@@ -5,7 +5,7 @@
 
 <form action="/flights/<%= flight._id %>/tickets/new" method="POST">
     <label>Seat:
-        <input name="seat" required pattern="[A-F][1-9]\d?" value="Must be 'A1' thru 'F99'">
+        <input name="seat" required pattern="[A-F][1-9]\d?" placeholder="Must be 'A1' thru 'F99'">
     </label><br>
     <label>Price:
         <input name="price">
