@@ -41,6 +41,15 @@
     </div>
   </section>
 
+  <section>
+      <h3>Tickets</h3> <a href="/tickets/new" class="btn">New Ticket</a> 
+      <ul>
+          <% tickets.forEach((t)=> { %>
+            <li><%= t.seat %> - $<%= t.price %></li>
+          <% }) %>
+      </ul>
+  </section>
+
   <br><br><h2>Destinations</h2>
   <form action="/flights/<%= flight._id %>/destinations" method="POST">
     <label>Airport:
