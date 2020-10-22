@@ -20,7 +20,7 @@ function deleteOne(req, res, next){
         console.log(flights[0].destinations.id(req.params.id)); 
         flights[0].destinations.id(req.params.id).remove()
         flights[0].save(function(err){
-        res.render(`flights/index`);
+        res.redirect(`/flights`);
     });
 })
 }
