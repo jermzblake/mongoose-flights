@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 
-
 require('./config/database');
 
 var indexRouter = require('./routes/index');
