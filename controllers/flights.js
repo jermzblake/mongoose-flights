@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket')
 
 module.exports = {
     index,
@@ -31,7 +32,6 @@ function create(req, res, next){
     const flight = new Flight(req.body);
     flight.save(function(err) {
         if(err){
-            // alert("There was an error in your form"); <-- why is alert undefined here?
             return res.render('flights/new')
         }
         console.log(flight)
@@ -41,7 +41,9 @@ function create(req, res, next){
 
 function show(req, res, next){
     Flight.findById(req.params.id, function(err, flight){
-        flight.destinations.sort((a,b) => a.arrival - b.arrival)
-        res.render('flights/show', {flight})
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+            flight.destinations.sort((a,b) => a.arrival - b.arrival)
+            res.render('flights/show', {flight, tickets})
+        })
     })
 }
